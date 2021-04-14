@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ""
+    relative_path: /home/ubuntu/catkin_ws/src/urdf/franka_cutting_setup.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/franka_cutting.srdf
+  CONFIG:
+    author_name: abdulrahim
+    author_email: abdulrah@stud.ntnu.no
+    generated_timestamp: 1618099004
