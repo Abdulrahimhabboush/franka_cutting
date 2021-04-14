@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <launch>
   <arg name="robot_ip" />
-  <arg name="load_gripper" default="true" />
+  <arg name="load_gripper" default="false" />
 
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro  '/home/abdulrah/catkin_ws/src/urdf/franka_cutting_setup.urdf.xacro'"/>
 
