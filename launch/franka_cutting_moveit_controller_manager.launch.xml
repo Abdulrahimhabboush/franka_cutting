@@ -1,7 +1,6 @@
 <launch>
     <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
-    <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleController" />
-    <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
+    <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
     <!-- The rest of the params are specific to this plugin -->
     
     <!-- If a controller manager is running (the generic one, not the MoveIt! one -->
@@ -11,7 +10,8 @@
     <!-- Flag indicating whether the controller manager should be used or not -->
     <arg name="use_controller_manager" default="true" />
     <param name="use_controller_manager" value="$(arg use_controller_manager)" />
-    
+    <param name="trajectory_execution/execution_duration_monitoring" value="false"/>
     <!-- load controller_list and controller_manager_ns -->
     <rosparam file="$(find franka_cutting)/config/controllers.yaml"/>
 </launch>
+
