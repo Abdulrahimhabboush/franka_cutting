@@ -2,14 +2,13 @@
 
 <launch>
   <arg name="robot_ip" />
+  <arg name="load_gripper" default="true" />
 
   <include file="$(find franka_cutting)/launch/franka_control.launch">
     <arg name="robot_ip" value="$(arg robot_ip)" />
   </include>
-    <arg name="config" default="true"/>
-    <arg name="rviz_config" default="$(find franka_cutting)/launch/moveit.rviz" />
-  
-    
+  <arg name="rviz_tutorial" default="false" />
+
   <!-- Add planning context launch file -->
   <include file="$(find franka_cutting)/launch/planning_context.launch">
         <arg name="load_robot_description" value="true"/>
@@ -17,11 +16,12 @@
     
   <include file="$(find franka_cutting)/launch/move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="load_gripper" value="$(arg load_gripper)" />
     <arg name="fake_execution" value="true"/>
   </include>
     
   <include file="$(find franka_cutting)/launch/moveit_rviz.launch">
-    <arg name="rviz_config" value="$(arg rviz_config)" />
+    <arg name="rviz_tutorial" value="$(arg rviz_tutorial)" />
   </include>
     
 </launch>
