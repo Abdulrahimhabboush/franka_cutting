@@ -1,9 +1,14 @@
 <?xml version="1.0" ?>
 <launch>
   <arg name="robot_ip" />
-  <arg name="load_gripper" default="false" />
+  <arg name="load_gripper" default="true" />
+  
+  <param name="robot_description" command="xacro  '/home/abdulrah/catkin_ws/src/urdf/franka_cutting_setup.urdf.xacro'" if="$(arg load_gripper)" />
+  <param name="robot_description" command="xacro  '/home/abdulrah/catkin_ws/src/urdf/franka_cutting_arm_setup.urdf.xacro'" unless="$(arg load_gripper)" />
 
-  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro  '/home/abdulrah/catkin_ws/src/urdf/franka_cutting_setup.urdf.xacro'"/>
+  <include file="$(find franka_gripper)/launch/franka_gripper.launch" if="$(arg load_gripper)">
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+  </include>
 
   <node name="franka_control" pkg="franka_control" type="franka_control_node" output="screen" required="true">
     <rosparam command="load" file="$(find franka_control)/config/franka_control_node.yaml" />

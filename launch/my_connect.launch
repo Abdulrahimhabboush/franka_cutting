@@ -3,7 +3,7 @@
 <launch>
   <arg name="robot_ip" />
 
-  <include file="$(find franka_control)/launch/franka_control.launch">
+  <include file="$(find franka_cutting)/launch/franka_control.launch">
     <arg name="robot_ip" value="$(arg robot_ip)" />
   </include>
     <arg name="config" default="true"/>
