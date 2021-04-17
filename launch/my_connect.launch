@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" ?>
 
 <launch>
   <arg name="robot_ip" />
   <arg name="load_gripper" default="true" />
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller"/>
 
   <include file="$(find franka_cutting)/launch/franka_control.launch">
     <arg name="robot_ip" value="$(arg robot_ip)" />
@@ -15,9 +17,7 @@
   </include>
     
   <include file="$(find franka_cutting)/launch/move_group.launch">
-    <arg name="allow_trajectory_execution" value="true"/>
     <arg name="load_gripper" value="$(arg load_gripper)" />
-    <arg name="fake_execution" value="true"/>
   </include>
     
   <include file="$(find franka_cutting)/launch/moveit_rviz.launch">
