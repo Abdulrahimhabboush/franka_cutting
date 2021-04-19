@@ -10,6 +10,6 @@ install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 install(DIRECTORY config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 catkin_install_python(
-  PROGRAMS scripts/move_to_start.py scripts/test.py
+  PROGRAMS scripts/move_to_start.py scripts/test.py scripts/test_joint.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
