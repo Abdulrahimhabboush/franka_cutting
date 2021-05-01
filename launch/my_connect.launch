@@ -25,9 +25,20 @@
   <include file="$(find franka_cutting)/launch/moveit_rviz.launch">
     <arg name="rviz_tutorial" value="$(arg rviz_tutorial)" />
   </include>
-   
-  <node pkg="franka_cutting" type="test_joint.py" name="test_joint" output="screen">
+  
+  <!-- Trajectory with cartesian_path  -->  
+  <!--node pkg="franka_cutting" type="plan_cartesian_path.py" name="plan_cartesian_path" output="screen"-->
+  <!--/node-->
+  
+    
+  <!-- Trajectory with joint states  -->  
+  <!--node pkg="franka_cutting" type="test_joint.py" name="test_joint" output="screen"-->
+  <!--/node-->
+  
+  <!-- Choping trajectory  -->  
+  <node pkg="franka_cutting" type="choping.py" name="choping" output="screen">
   </node>
+  
   <!--<node pkg="franka_cutting" type="$(arg cutting_strategy).py" name="joint_motion" output="screen" />-->
   <!--<node pkg="rosbag" type="record" name="rosbag" output="screen" args="record -a -o /home/abdulrah/$(arg material)_$(arg cutting_strategy).bag"/> -->
   
