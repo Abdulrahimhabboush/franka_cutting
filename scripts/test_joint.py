@@ -7,6 +7,7 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 
+#rospy.wait_for_service("/zivid_camera/capture)
 moveit_commander.roscpp_initialize(sys.argv)
 rospy.init_node('test', anonymous=True)
 
@@ -78,8 +79,6 @@ joint_goal[6] = 1.0901709041347107
     
 plan = move_group.go(joint_goal, wait=True)   
    
-plan = move_group.go(joint_goal, wait=True)
-   
 joint_goal = move_group.get_current_joint_values()
 joint_goal[0] = 2.6449656811350564
 joint_goal[1] = -0.9077073808863827
@@ -90,6 +89,17 @@ joint_goal[5] = 2.4379884178636244
 joint_goal[6] = 1.131359509755153
     
 plan = move_group.go(joint_goal, wait=True)    
+
+joint_goal = move_group.get_current_joint_values()
+joint_goal[0] = 2.6112615823306538
+joint_goal[1] = -0.25040594194753063
+joint_goal[2] = -2.800244516891345
+joint_goal[3] = -1.7585150775828406
+joint_goal[4] = -0.0857717829743752
+joint_goal[5] = 2.0214430522117324
+joint_goal[6] = 0.6118222945302795
+    
+plan = move_group.go(joint_goal, wait=True)
    
 rospy.sleep(5)
     
