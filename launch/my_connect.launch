@@ -36,13 +36,17 @@
   <!--/node-->
   
   <!-- Choping trajectory  -->  
-  <node pkg="franka_cutting" type="choping.py" name="choping" output="screen">
+  <!--node pkg="franka_cutting" type="choping.py" name="choping" output="screen"-->
+  <!--/node-->
+  
+  <!-- Sawing trajectory  -->  
+  <node pkg="franka_cutting" type="sawing.py" name="sawing" output="screen">
   </node>
   
   <!--<node pkg="franka_cutting" type="$(arg cutting_strategy).py" name="joint_motion" output="screen" />-->
   <!--<node pkg="rosbag" type="record" name="rosbag" output="screen" args="record -a -o /home/abdulrah/$(arg material)_$(arg cutting_strategy).bag"/> -->
   
-  <include file="$(find zivid_samples)/launch/sample.launch">
-    <arg name="type" value="sample_capture_assistant.py"/>
-  </include>  
+  <!--include file="$(find zivid_samples)/launch/sample.launch"-->
+    <!--arg name="type" value="sample_capture_assistant.py"/-->
+  <!--/include-->  
 </launch>
