@@ -40,7 +40,11 @@
   <!--/node-->
   
   <!-- Sawing trajectory  -->  
-  <node pkg="franka_cutting" type="sawing.py" name="sawing" output="screen">
+  <!--node pkg="franka_cutting" type="sawing.py" name="sawing" output="screen"-->
+  <!--/node-->
+
+  <!-- Pressing trajectory  -->  
+  <node pkg="franka_cutting" type="pressing.py" name="pressing" output="screen">
   </node>
   
   <!--<node pkg="franka_cutting" type="$(arg cutting_strategy).py" name="joint_motion" output="screen" />-->
