@@ -19,26 +19,48 @@ display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path
                                                    moveit_msgs.msg.DisplayTrajectory,
                                                    queue_size=20)
 
-move_group = self.move_group
+pose_goal = geometry_msgs.msg.Pose()
+pose_goal.orientation.x =0.9253726378084068#-0.886255420986795 #0.0
+pose_goal.orientation.y = -0.3783464598944632#0.28602401015314566 #0.0
+pose_goal.orientation.z = 0.008535701587379811#-0.36398034203008306 #0.0
+pose_goal.orientation.w = 0.021600446274317037#0.0161215694985304 #1.0
 
-waypoints = []
+pose_goal.position.x = 0.6092038137426892#0.6502561169158649 #0.4
+pose_goal.position.y = -0.21050189256461263#-0.06959042110924456 #0.1
+pose_goal.position.z = 1.0139551617867288#0.9743180028822862 #0.4
 
-wpose = move_group.get_current_pose().pose
-wpose.position.z -= scale * 0.1  # First move up (z)
-wpose.position.y += scale * 0.2  # and sideways (y)
-waypoints.append(copy.deepcopy(wpose))
+move_group.set_pose_target(pose_goal)
+#print(move_group.get_current_pose().pose)
+plan = move_group.go(wait=True)   
 
-wpose.position.x += scale * 0.1  # Second move forward/backwards in (x)
-waypoints.append(copy.deepcopy(wpose))
+pose_goal = geometry_msgs.msg.Pose()
+pose_goal.orientation.x =0.9253726378084068#-0.886255420986795 #0.0
+pose_goal.orientation.y = -0.3783464598944632#0.28602401015314566 #0.0
+pose_goal.orientation.z = 0.008535701587379811#-0.36398034203008306 #0.0
+pose_goal.orientation.w = 0.021600446274317037#0.0161215694985304 #1.0
 
-wpose.position.y -= scale * 0.1  # Third move sideways (y)
-waypoints.append(copy.deepcopy(wpose))
+pose_goal.position.x = 0.6092038137426892#0.6502561169158649 #0.4
+pose_goal.position.y = -0.21050189256461263#-0.06959042110924456 #0.1
+pose_goal.position.z = 0.9139551617867288#0.9743180028822862 #0.4
 
-(plan, fraction) = move_group.compute_cartesian_path(
-                                       waypoints,   # waypoints to follow
-                                       0.01,        # eef_step
-                                       0.0)         # jump_threshold
-   
+move_group.set_pose_target(pose_goal)
+#print(move_group.get_current_pose().pose)
+plan = move_group.go(wait=True)
+
+pose_goal = geometry_msgs.msg.Pose()
+pose_goal.orientation.x =0.9253726378084068#-0.886255420986795 #0.0
+pose_goal.orientation.y = -0.3783464598944632#0.28602401015314566 #0.0
+pose_goal.orientation.z = 0.008535701587379811#-0.36398034203008306 #0.0
+pose_goal.orientation.w = 0.021600446274317037#0.0161215694985304 #1.0
+
+pose_goal.position.x = 0.6092038137426892#0.6502561169158649 #0.4
+pose_goal.position.y = -0.21050189256461263#-0.06959042110924456 #0.1
+pose_goal.position.z = 0.8139551617867288#0.9743180028822862 #0.4
+
+move_group.set_pose_target(pose_goal)
+#print(move_group.get_current_pose().pose)
+plan = move_group.go(wait=True)   
 rospy.sleep(5)
     
 moveit_commander.roscpp_shutdown()
+

@@ -4,7 +4,7 @@
   <arg name="robot_ip" />
   <arg name="load_gripper" default="true" />
   <!--<arg name="material_type" default="none" />-->
-  <!--<arg name="cutting_strategy" default="chop" />-->
+  <arg name="cutting_strategy" default="choping" />
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller"/>
 
@@ -44,10 +44,10 @@
   <!--/node-->
 
   <!-- Pressing trajectory  -->  
-  <node pkg="franka_cutting" type="pressing.py" name="pressing" output="screen">
-  </node>
+  <!--node pkg="franka_cutting" type="pressing.py" name="pressing" output="screen"-->
+  <!--/node-->
   
-  <!--<node pkg="franka_cutting" type="$(arg cutting_strategy).py" name="joint_motion" output="screen" />-->
+  <node pkg="franka_cutting" type="$(arg cutting_strategy).py" name="joint_motion" output="screen" />
   <!--<node pkg="rosbag" type="record" name="rosbag" output="screen" args="record -a -o /home/abdulrah/$(arg material)_$(arg cutting_strategy).bag"/> -->
   
   <!--include file="$(find zivid_samples)/launch/sample.launch"-->
