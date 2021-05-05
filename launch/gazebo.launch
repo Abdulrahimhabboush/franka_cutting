@@ -2,7 +2,7 @@
 <launch>
   <arg name="paused" default="false"/>
   <arg name="gazebo_gui" default="true"/>
-  <arg name="urdf_path" default="/home/abdulrah/catkin_ws/src/urdf/franka_cutting_setup.urdf.xacro"/>
+  <arg name="urdf_path" default="/home/abdulrah/catkin_ws/src/franka_cutting/urdf/franka_cutting_setup.urdf.xacro"/>
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">

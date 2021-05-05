@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro" />
+  <xacro:panda_arm safety_distance="0.03"/>
+  <link name="workspace_link">
+  </link>
+
+  <joint name="workspace_pedestal_joint" type="fixed">
+    <parent link="workspace_link"/>
+    <child link="pedestal_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.3"/>
+  </joint>
+  
+  <link name="pedestal_link">
+    <visual>
+      <geometry>
+          <cylinder length="0.6" radius="0.1"/>
+        </geometry>
+    </visual>
+    <collision>
+        <geometry>
+          <cylinder length="0.6" radius="0.1"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0.3"/>
+    </collision>
+  </link>
+  
+  <joint name="pedestal_robot_joint" type="fixed">
+    <parent link="pedestal_link"/>
+    <child link="panda_link0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.3"/>
+  </joint>
+  
+  <joint name="workspace_table_joint" type="fixed">
+    <parent link="workspace_link"/>
+    <child link="table_link"/>
+  </joint>
+  
+  <link name="table_link">
+    <visual>
+      <geometry>
+          <box size="0.6 0.5 1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="1 0 0.5"/>
+    </visual>
+    <collision>
+        <geometry>
+          <box size="0.6 0.5 1"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="1 0 0.5"/>
+    </collision>
+  </link>
+</robot>
