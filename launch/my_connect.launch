@@ -27,7 +27,7 @@
   </include>
 
   <node pkg="franka_cutting" type="$(arg cutting_strategy).py" name="joint_motion" output="screen" />
-  <node pkg="rosbag" type="record" name="rosbag" output="screen" args="record -a -x '(.*)/compressedDepth | (.*)/theora | (.*)/theora/(.*)' -o /home/abdulrah/$(arg material)_$(arg cutting_strategy).bag"/>
+  <node pkg="rosbag" type="record" name="rosbag" output="screen" args="record -a -x '(.*)/compressedDepth | (.*)/theora | (.*)/theora/(.*)' -o /home/abdulrah/catkin_ws/src/franka_cutting/rosbag/$(arg material)_$(arg cutting_strategy).bag"/>
   
   <include file="$(find zivid_samples)/launch/sample.launch">
     <arg name="type" value="sample_capture_assistant.py"/>
