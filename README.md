@@ -1,5 +1,5 @@
 # franka_cutting
-This work is related to a master thesis at the Department of Engineering Cybernetics, 2021.\\
+This work is related to a master thesis at the Department of Engineering Cybernetics, 2021.
 The author: Abdulrahim Habboush
 My_connect file is the main lunch file for this project.
 The following commands can be used, To start the experiment:
