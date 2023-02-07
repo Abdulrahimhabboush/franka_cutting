@@ -1,4 +1,4 @@
-# franka_cutting
+# Franka_cutting
 This work is related to a master thesis at the Department of Engineering Cybernetics, 2021.
 
 The author: Abdulrahim Habboush
